@@ -1,0 +1,43 @@
+<app-exception-handler></app-exception-handler>
+<div class="d-flex flex-row-reverse">
+  <button type="button" class="btn btn-edit" (click)="OpenAddUserModal()">
+    Add User
+  </button>
+</div>
+<div class="table2">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Email</th>
+        <th scope="col">Last Modified</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userService.usersList$ | async; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ user.email }}</td>
+        <td>{{ user.timestamp | date }}</td>
+        <td>
+          <div class="btn-group" role="group" aria-label="btn grup">
+            <button
+              type="button"
+              class="btn btn-edit"
+              (click)="OpenEditUserModal(user.id)"
+            >
+              Edit
+            </button>
+            <button
+              type="button"
+              class="btn btn btn-danger"
+              (click)="OpenRemoveUserModal(user.id)"
+            >
+              X
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

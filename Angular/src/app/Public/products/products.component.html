@@ -1,0 +1,78 @@
+<body>
+  <app-exception-handler></app-exception-handler>
+  <div class="container-fluid">
+    <div class="w-100 base-container">
+      <div class="container container-login">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="textInput">Text:</label>
+              <input
+                type="text"
+                id="textInput"
+                class="input-filter"
+                [(ngModel)]="searchText"
+              />
+            </div>
+            <div class="form-group">
+              <label for="brandInput">Brand:</label>
+              <input
+                type="text"
+                id="brandInput"
+                class="input-filter"
+                [(ngModel)]="selectedBrand"
+              />
+            </div>
+            <div class="form-group">
+              <label for="minPriceInput">Category:</label>
+              <input
+                type="text"
+                id="minPriceInput"
+                class="input-filter"
+                [(ngModel)]="category"
+              />
+            </div>
+            <div class="form-group">
+              <label for="minPriceInput">Min Price:</label>
+              <input
+                type="number"
+                id="minPriceInput"
+                class="input-filter"
+                [(ngModel)]="minPrice"
+              />
+            </div>
+            <div class="form-group">
+              <label for="maxPriceInput">Max Price:</label>
+              <input
+                type="number"
+                id="maxPriceInput"
+                class="input-filter"
+                [(ngModel)]="maxPrice"
+              />
+            </div>
+            <div class="form-group">
+              <label for="isPromotionalCheckbox" class="font-login"
+                >Is Promotional</label
+              >
+              <input
+                type="checkbox"
+                id="isPromotionalCheckbox"
+                [(ngModel)]="isPromotional"
+              />
+            </div>
+            <button class="btn moreInfoButton" (click)="applyFilters()">
+              Filter
+            </button>
+          </div>
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-md-2 products" *ngFor="let product of products">
+                <app-product-item [product]="product"></app-product-item>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

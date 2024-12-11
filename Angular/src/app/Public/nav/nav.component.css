@@ -1,0 +1,76 @@
+#logInButton {
+  color: #070607;
+  background-color: #dedce2;
+  border-color: #dedce2;
+}
+
+#logInButton:hover,
+#logInButton:focus,
+#logInButton:active {
+  color: #fff;
+  background-color: #494a99;
+  border-color: #494a99;
+}
+#logOutButton {
+  color: #070607;
+  background-color: #dedce2;
+  border-color: #dedce2;
+}
+#logOutButton:hover,
+#logOutButton:focus,
+#logOutButton:active {
+  color: #fff;
+  background-color: red;
+  border-color: red;
+}
+
+#signUpButton {
+  color: #070607;
+  background-color: #dedce2;
+  border-color: #dedce2;
+}
+
+#signUpButton:hover,
+#signUpButton:focus,
+#signUpButton:active {
+  color: #fff;
+  background-color: #494a99;
+  border-color: #494a99;
+}
+
+.navbar-custom {
+  background-color: #dedce2;
+  color: #dedce2;
+  border-color: #dedce2;
+}
+
+.menu-Option {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-Option::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  background-color: black;
+  transition: height 0.3s;
+}
+
+.menu-Option:hover::after {
+  height: 2px;
+}
+
+.cart-image {
+  width: 50%;
+  height: 80%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.cart-image:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}

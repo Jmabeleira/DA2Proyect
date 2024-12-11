@@ -1,0 +1,14 @@
+.btn-edit {
+  color: #070607;
+  background-color: #dedce2;
+  border-color: #dedce2;
+  margin-left: 350px;
+}
+
+.btn-edit:hover,
+.btn-edit:focus,
+.btn-edit:active {
+  color: #fff;
+  background-color: #494a99;
+  border-color: #494a99;
+}

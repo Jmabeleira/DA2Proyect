@@ -1,0 +1,73 @@
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header">
+          <h5>User Profile</h5>
+        </div>
+        <div class="card-body">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <strong>User ID:</strong> {{ user?.id }}
+            </li>
+            <li class="list-group-item">
+              <strong>Email:</strong> {{ user?.email }}
+            </li>
+            <li class="list-group-item">
+              <strong>User Role(s):</strong>
+              <ul>
+                <li *ngFor="let role of user?.userRole">
+                  {{ getRoleString(role) }}
+                </li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <strong>Password:</strong>
+              <span
+                class="password"
+                [innerHTML]="getBlurredPassword(user?.password)"
+              ></span>
+            </li>
+            <li class="list-group-item">
+              <strong>Address:</strong>
+              <ul>
+                <li><strong>Country:</strong> {{ user?.address?.country }}</li>
+                <li><strong>City:</strong> {{ user?.address?.city }}</li>
+                <li><strong>Street:</strong> {{ user?.address?.street }}</li>
+                <li><strong>Zip Code:</strong> {{ user?.address?.zipCode }}</li>
+                <li>
+                  <strong>Door Number:</strong> {{ user?.address?.doorNumber }}
+                </li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <strong>Token:</strong>
+              <span
+                class="token"
+                [innerHTML]="getBlurredToken(user?.token)"
+              ></span>
+            </li>
+            <li class="list-group-item">
+              <strong>Last Modified:</strong>
+              {{ user?.timestamp | date : "medium" }}
+            </li>
+          </ul>
+          <div class="text-right">
+            <button
+              class="btn btn-primary btn-edit"
+              (click)="OpenEditUserModal()"
+            >
+              Edit
+            </button>
+            <button
+              class="btn btn-secondary btn-view-orders"
+              [routerLink]="'/orders-list/' + this.user?.id"
+            >
+              View Orders
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

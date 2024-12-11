@@ -1,0 +1,106 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.cart-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.cart-container:hover {
+  background-color: #f2f2f2;
+}
+
+.cart-details {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.cart-details:hover {
+  background-color: #e2e6ea;
+}
+
+.cart-title {
+  color: #007bff;
+}
+
+.cart-info p {
+  margin: 5px 0;
+}
+
+.promotion-info {
+  margin-top: 15px;
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
+
+.table-responsive {
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.table th,
+.table td {
+  border: 1px solid #dee2e6;
+  padding: 12px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f2f2f2;
+}
+
+.table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.total-title {
+  color: #28a745;
+  margin-top: 20px;
+}
+
+.total-container {
+  margin-top: 15px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f0f8ff;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.total-container:hover {
+  background-color: #d9e5ff;
+}
+
+.purchase-button {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.purchase-button:hover {
+  background-color: #28a745;
+}
+
+.discount-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  color: #28a745;
+  font-size: 1.2rem;
+  border-radius: 5px;
+}

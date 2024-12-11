@@ -1,0 +1,30 @@
+.products {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.moreInfoButton {
+  color: #070607;
+  background-color: #dedce2;
+  border-color: #dedce2;
+}
+
+.moreInfoButton:hover,
+.moreInfoButton:focus,
+.moreInfoButton:active {
+  color: #fff;
+  background-color: #494a99;
+  border-color: #494a99;
+}
+.form-group {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.input-filter {
+  margin-left: 10px;
+  width: 200px; /* Adjust the width as needed */
+}

@@ -1,0 +1,122 @@
+<body>
+  <div class="container-fluid">
+    <div class="w-100 base-container">
+      <div class="container container-login">
+        <app-exception-handler></app-exception-handler>
+        <form (ngSubmit)="onSubmit()" [formGroup]="form" class="form-container">
+          <div class="form-row">
+            <div class="form-column">
+              <h2 class="font-signUp">Sign Up</h2>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-column">
+              <div class="form-group">
+                <label for="emailInput" class="font-login">Email address</label>
+                <input
+                  type="email"
+                  formControlName="email"
+                  class="form-control"
+                  id="emailInput"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter email"
+                />
+              </div>
+            </div>
+            <div class="form-column">
+              <div class="form-group">
+                <label for="passwordInput" class="font-login">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  formControlName="password"
+                  id="passwordInput"
+                  placeholder="Password"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-column">
+              <h2 class="font-signUp">Address</h2>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-column">
+              <div class="form-group">
+                <label for="countryInput" class="font-login">Country</label>
+                <input
+                  type="text"
+                  formControlName="country"
+                  class="form-control"
+                  id="countryInput"
+                  aria-describedby="countryHelp"
+                  placeholder="Enter Country"
+                />
+              </div>
+            </div>
+            <div class="form-column">
+              <div class="form-group">
+                <label for="cityInput" class="font-login">City</label>
+                <input
+                  type="text"
+                  formControlName="city"
+                  class="form-control"
+                  id="cityInput"
+                  aria-describedby="cityHelp"
+                  placeholder="Enter City"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-column">
+              <div class="form-group">
+                <label for="streetInput" class="font-login">Street</label>
+                <input
+                  type="text"
+                  formControlName="street"
+                  class="form-control"
+                  id="streetInput"
+                  aria-describedby="streetHelp"
+                  placeholder="Enter Street"
+                />
+              </div>
+            </div>
+            <div class="form-column">
+              <div class="form-group">
+                <label for="doorNumberInput" class="font-login"
+                  >Door Number</label
+                >
+                <input
+                  type="text"
+                  formControlName="doorNumber"
+                  class="form-control"
+                  id="doorNumberInput"
+                  aria-describedby="doorNumberHelp"
+                  placeholder="Enter Door Number"
+                />
+              </div>
+            </div>
+            <div class="form-column">
+              <div class="form-group">
+                <label for="postalCodeInput" class="font-login"
+                  >Postal Code</label
+                >
+                <input
+                  type="text"
+                  formControlName="postalCode"
+                  class="form-control"
+                  id="postalCodeInput"
+                  aria-describedby="postalCodeHelp"
+                  placeholder="Enter Postal Code"
+                />
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-confrim">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>

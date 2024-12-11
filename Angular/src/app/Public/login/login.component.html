@@ -1,0 +1,41 @@
+<body>
+  <div class="container-fluid">
+    <div class="w-100 base-container">
+      <div class="container container-login">
+        <app-exception-handler></app-exception-handler>
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <h1 class="font-login-header">Login</h1>
+            <form class="form-group" [formGroup]="form">
+              <div class="form-group">
+                <label for="emailInput" class="font-login">Email address</label>
+                <input
+                  type="email"
+                  formControlName="email"
+                  class="form-control"
+                  id="emailInput"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter email"
+                />
+                <small id="emailHelp" class="form-text text-secondary"
+                  >We'll never share your email with anyone else</small
+                >
+              </div>
+              <div class="form-group">
+                <label for="passwordInput" class="font-login">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  formControlName="password"
+                  id="passwordInput"
+                  placeholder="Password"
+                />
+              </div>
+              <button class="btn btn-confrim" (click)="Login()">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

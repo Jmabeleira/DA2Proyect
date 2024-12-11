@@ -1,0 +1,94 @@
+<form [formGroup]="paymentForm" class="my-4">
+  <div class="form-group">
+    <label for="paymentMethod">Select Payment Method:</label>
+    <select
+      class="form-control"
+      formControlName="paymentMethod"
+      id="paymentMethod"
+    >
+      <option *ngFor="let method of paymentMethods" [value]="method.type">
+        {{ method.displayName }}
+      </option>
+    </select>
+  </div>
+
+  <div *ngIf="isCreditCardSelected()" class="my-3">
+    <label>Credit Card Type:</label>
+    <div class="form-check" *ngFor="let cardType of creditCardTypes">
+      <input
+        class="form-check-input"
+        type="radio"
+        [value]="cardType"
+        formControlName="creditCardType"
+        id="{{ cardType }}"
+      />
+      <label class="form-check-label" for="{{ cardType }}">{{
+        cardType
+      }}</label>
+    </div>
+  </div>
+
+  <div *ngIf="isDebitCardSelected()" class="my-3">
+    <label>Debit Card Type:</label>
+    <div class="form-check" *ngFor="let cardType of debitCardTypes">
+      <input
+        class="form-check-input"
+        type="radio"
+        [value]="cardType"
+        formControlName="debitCardType"
+        id="{{ cardType }}"
+      />
+      <label class="form-check-label" for="{{ cardType }}">{{
+        cardType
+      }}</label>
+    </div>
+  </div>
+
+  <div class="my-3">
+    <h4>Order Summary</h4>
+    <div *ngIf="cart">
+      <div *ngFor="let cartProduct of cart.products" class="order-summary-item">
+        <div class="d-flex justify-content-between align-items-center">
+          <span
+            >{{ cartProduct.product.name }} (Quantity:
+            {{ cartProduct.quantity }})</span
+          >
+        </div>
+      </div>
+
+      <div *ngIf="cart.promotion" class="promotion-item">
+        <div class="d-flex justify-content-between align-items-center">
+          <span>{{ cart.promotion.name }}</span>
+        </div>
+        <div>{{ cart.promotion.description }}</div>
+      </div>
+
+      <div
+        *ngIf="paymentForm.get('paymentMethod')?.value != 'Paganza'"
+        class="d-flex justify-content-between align-items-center mb-3"
+      >
+        <span class="total-price">Total Price:</span>
+        <span class="total-price">{{ cart.totalPrice | currency }}</span>
+      </div>
+    </div>
+  </div>
+  <div
+    *ngIf="paymentForm.get('paymentMethod')?.value === 'Paganza'"
+    class="my-3"
+  >
+    <p style="color: red">Get an additional 10% discount!</p>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <span class="total-price">Total Price:</span>
+      <span class="total-price" style="color: red">{{
+        calculateDiscountedPrice() | currency
+      }}</span>
+    </div>
+  </div>
+  <button
+    type="button"
+    class="btn btn-purchase btn-lg mt-3"
+    (click)="purchase()"
+  >
+    Purchase
+  </button>
+</form>

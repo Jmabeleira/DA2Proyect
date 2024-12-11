@@ -1,0 +1,26 @@
+<app-exception-handler></app-exception-handler>
+<div class="product-container">
+  <div class="product-image">
+    <img
+      src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190530183756/Good-Habits-for-developers-programmers.png"
+      alt="Product Image"
+    />
+  </div>
+  <div class="d-flex justify-content-end">
+    <div class="product-details">
+      <h1>{{ product.name }}</h1>
+      <h3>{{ product.price | currency }}</h3>
+      <p>Category: {{ product.category }}</p>
+      <p>Brand: {{ product.brand }}</p>
+      <p *ngIf="product.stock == 0">No stock left!</p>
+      <p *ngIf="product.stock != 0 && product.stock > 10">
+        Hay stock disponible
+      </p>
+      <p *ngIf="product.stock <= 10">
+        We are about to run out of stock. Buy now if you want this product!
+      </p>
+      <p>{{ product.description }}</p>
+      <button class="btn addToCart">Add to Cart</button>
+    </div>
+  </div>
+</div>

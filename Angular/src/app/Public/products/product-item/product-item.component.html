@@ -1,0 +1,58 @@
+<app-exception-handler></app-exception-handler>
+<div class="container">
+  <div class="card" style="width: 200px">
+    <img
+      class="card-img-top"
+      src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190530183756/Good-Habits-for-developers-programmers.png"
+      alt="Card image"
+      style="width: 100%"
+    />
+    <div class="card-body">
+      <h4 routerLink="/products/{{ product?.id }}" class="card-title name">
+        {{ product?.name }}
+      </h4>
+
+      <div class="product-info">
+        <p class="price">
+          <strong>Price:</strong> {{ product?.price | currency }}
+        </p>
+
+        <p class="card-text"><strong>Brand:</strong> {{ product?.brand }}</p>
+
+        <p class="card-text">
+          <strong>Description:</strong> {{ product?.description }}
+        </p>
+
+        <p class="card-text">
+          <strong>Category:</strong> {{ product?.category }}
+        </p>
+
+        <p class="card-text" *ngIf="product?.stock! > 0">
+          <strong>Stock:</strong> {{ product?.stock }}
+        </p>
+
+        <p class="card-text" *ngIf="product?.stock! <= 0" style="color: red">
+          <strong>Product doesn't have stock</strong>
+        </p>
+      </div>
+
+      <div class="actions">
+        <button
+          class="btn btn-primary"
+          *ngIf="authService.loggedIn"
+          (click)="addToCart()"
+        >
+          Add to Cart
+        </button>
+
+        <button
+          disabled
+          class="btn btn-secondary"
+          *ngIf="!authService.loggedIn"
+        >
+          Please login to add to cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

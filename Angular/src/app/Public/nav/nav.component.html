@@ -1,0 +1,100 @@
+<nav class="navbar navbar-custom navbar-expand-lg navbar-custom">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">ECommmerceAPP</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link active menu-Option"
+            aria-current="page"
+            routerLink="/"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active menu-Option"
+            routerLink="user-profile/{{ authService.getCurrentUser()?.id }}"
+            >Profile</a
+          >
+        </li>
+        <div class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a
+              class="nav-link active menu-Option"
+              *ngIf="authService.IsAdmin()"
+              routerLink="/admin/user-managment"
+              >User Managment</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link active menu-Option"
+              *ngIf="authService.IsAdmin()"
+              routerLink="/admin/product-managment"
+              >Product Managment</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link active menu-Option"
+              *ngIf="authService.IsAdmin()"
+              routerLink="/orders-list/{{ authService.getCurrentUser()?.id }}"
+              >Order Managment</a
+            >
+          </li>
+        </div>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li>
+          <a routerLink="/cart-list/{{ authService.getCurrentUser()?.id }}">
+            <img
+              src="../../../assets/img/icons8-carrito-de-compras-64.png"
+              alt="cart"
+              style="width: 50%; height: 80%"
+              class="cart-image"
+            />
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="!authService.loggedIn">
+          <a
+            class="btn btn-outline-success mx-1"
+            id="logInButton"
+            aria-current="page"
+            routerLink="/login"
+            >Log In</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="!authService.loggedIn">
+          <a
+            class="btn btn-outline-success mx-1"
+            id="signUpButton"
+            routerLink="/signup"
+            >Sign Up</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="authService.loggedIn">
+          <a
+            class="btn btn-outline-success mx-1"
+            id="logOutButton"
+            (click)="LogOut()"
+            aria-current="page"
+            routerLink="/"
+            >Log Out</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,122 @@
+<div class="row">
+  <div *ngIf="!isAdmin()" class="col-lg-12">
+    <div class="table-responsive">
+      <table
+        class="table table-bordered table-striped table-hover custom-table"
+      >
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Payment Method</th>
+            <th scope="col">Customer Email</th>
+            <th scope="col">Customer Address</th>
+            <th scope="col">Applied Promotion</th>
+            <th scope="col">Products</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of userOrders; let i = index" class="table-row">
+            <th scope="row">{{ i + 1 }}</th>
+            <td class="date-column">{{ order?.date | date : "medium" }}</td>
+            <td class="price-column">{{ order?.totalPrice | currency }}</td>
+            <td class="payment-column">{{ order?.paymentMethod?.type }}</td>
+            <td class="email-column">{{ order?.customer?.email }}</td>
+            <td class="address-column">
+              {{ order?.customer?.address?.street }},
+              {{ order?.customer?.address?.city }},
+              {{ order?.customer?.address?.country }}
+            </td>
+            <td>
+              <span [style.color]="order?.appliedPromotion ? '' : 'red'">
+                {{ order?.appliedPromotion?.name || "Without Promotion" }}
+              </span>
+            </td>
+            <td>
+              <ul class="list-unstyled product-list">
+                <li
+                  *ngFor="let product of order?.products"
+                  class="product-item"
+                >
+                  {{ product?.product?.name }} - Quantity:
+                  {{ product?.quantity }} - Price:
+                  {{ product?.product?.price | currency }}
+                </li>
+              </ul>
+            </td>
+            <td>
+              <button
+                class="btn btn-primary btn-sm"
+                (click)="viewDetails(order)"
+              >
+                View Details
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div *ngIf="isAdmin()" class="col-lg-12">
+    <div class="table-responsive">
+      <table
+        class="table table-bordered table-striped table-hover custom-table"
+      >
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Payment Method</th>
+            <th scope="col">Customer Email</th>
+            <th scope="col">Customer Address</th>
+            <th scope="col">Applied Promotion</th>
+            <th scope="col">Products</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of allOrders; let i = index" class="table-row">
+            <th scope="row">{{ i + 1 }}</th>
+            <td class="date-column">{{ order?.date | date : "medium" }}</td>
+            <td class="price-column">{{ order?.totalPrice | currency }}</td>
+            <td class="payment-column">{{ order?.paymentMethod?.type }}</td>
+            <td class="email-column">{{ order?.customer?.email }}</td>
+            <td class="address-column">
+              {{ order?.customer?.address?.street }},
+              {{ order?.customer?.address?.city }},
+              {{ order?.customer?.address?.country }}
+            </td>
+            <td>
+              <span [style.color]="order?.appliedPromotion ? '' : 'red'">
+                {{ order?.appliedPromotion?.name || "Without Promotion" }}
+              </span>
+            </td>
+            <td>
+              <ul class="list-unstyled product-list">
+                <li
+                  *ngFor="let product of order?.products"
+                  class="product-item"
+                >
+                  {{ product?.product?.name }} - Quantity:
+                  {{ product?.quantity }} - Price:
+                  {{ product?.product?.price | currency }}
+                </li>
+              </ul>
+            </td>
+            <td>
+              <button
+                class="btn btn-primary btn-sm"
+                (click)="viewDetails(order)"
+              >
+                View Details
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

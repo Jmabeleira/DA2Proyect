@@ -1,0 +1,66 @@
+<div class="container">
+  <h2 class="mt-4">Order Details</h2>
+  <div class="card shadow-lg">
+    <div class="card-body">
+      <p class="card-text">
+        <strong class="text-primary">Order ID:</strong> {{ order?.id }}
+      </p>
+      <p class="card-text">
+        <strong class="text-primary">Date:</strong>
+        {{ order?.date | date : "medium" }}
+      </p>
+      <p class="card-text">
+        <strong class="text-primary">Total Price:</strong>
+        {{ order?.totalPrice | currency }}
+      </p>
+      <p class="card-text">
+        <strong class="text-primary">Payment Method:</strong>
+        {{ order?.paymentMethod?.type }}
+      </p>
+
+      <h3 class="mt-4 text-primary">Customer Information:</h3>
+      <p class="card-text">
+        <strong class="text-primary">Email:</strong>
+        {{ order?.customer?.email }}
+      </p>
+      <p class="card-text">
+        <strong class="text-primary">Address:</strong>
+        {{ order?.customer?.address?.street }},
+        {{ order?.customer?.address?.city }},
+        {{ order?.customer?.address?.country }}
+      </p>
+
+      <h3 class="mt-4 text-primary">Applied Promotion:</h3>
+      <p *ngIf="order?.appliedPromotion; else noPromotion" class="card-text">
+        <strong class="text-primary">Name:</strong>
+        {{ order?.appliedPromotion?.name }}<br />
+        <strong class="text-primary">Description:</strong>
+        {{ order?.appliedPromotion?.description }}<br />
+        <strong class="text-primary">Condition:</strong>
+        {{ order?.appliedPromotion?.condition }}
+      </p>
+      <ng-template #noPromotion>
+        <p class="card-text text-danger">
+          <strong>No Promotion Applied</strong>
+        </p>
+      </ng-template>
+
+      <h3 class="mt-4 text-primary">Products:</h3>
+      <ul class="list-group">
+        <li *ngFor="let product of order?.products" class="list-group-item">
+          <strong class="text-primary">Name:</strong> {{ product.product.name
+          }}<br />
+          <strong class="text-primary">Quantity:</strong> {{ product.quantity
+          }}<br />
+          <strong class="text-primary">Price:</strong>
+          {{ product.product.price | currency }}
+        </li>
+      </ul>
+      <div class="text-center mt-4">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

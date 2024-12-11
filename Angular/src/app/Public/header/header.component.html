@@ -1,0 +1,12 @@
+<header class="masthead">
+  <div class="container">
+    <div class="masthead-subheading">Welcome To Our Online Clothe Store!</div>
+    <div class="masthead-heading">We Take Care Of Your Style</div>
+    <a *ngIf="!authService.loggedIn" class="btn btn-home" routerLink="/login"
+      >Shop now!</a
+    >
+  </div>
+</header>
+<body>
+  <app-products></app-products>
+</body>

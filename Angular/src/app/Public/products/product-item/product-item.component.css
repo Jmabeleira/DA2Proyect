@@ -1,0 +1,39 @@
+.container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.moreInfoButton {
+  color: #070607;
+  background-color: #dedce2;
+  border-color: #dedce2;
+}
+
+.moreInfoButton:hover,
+.moreInfoButton:focus,
+.moreInfoButton:active {
+  color: #fff;
+  background-color: #494a99;
+  border-color: #494a99;
+}
+
+.name {
+  cursor: pointer;
+  width: fit-content;
+}
+.name:hover,
+.name:focus,
+.name:active {
+  color: #494a99;
+  cursor: pointer;
+}
+
+.moreInfoButtonDisabled {
+  border: 1px solid black;
+  background-color: grey;
+  color: white;
+  padding: 15px;
+  cursor: not-allowed;
+}

@@ -1,0 +1,168 @@
+<app-exception-handler></app-exception-handler>
+<div class="modal-header">
+  <h4 class="modal-title">Modify User</h4>
+  <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body">
+  <form [formGroup]="form" class="form-container">
+    <div class="form-row">
+      <div class="form-column">
+        <h2 class="font-signUp">User Data</h2>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-column">
+        <div class="form-group">
+          <label for="emailInput" class="font-login">Email address</label>
+          <input
+            type="email"
+            formControlName="email"
+            class="form-control"
+            id="emailInput"
+            aria-describedby="emailHelp"
+          />
+        </div>
+      </div>
+      <div class="form-column">
+        <div class="form-group">
+          <label for="passwordInput" class="font-login">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password"
+            id="passwordInput"
+          />
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="form-row">
+      <div class="form-column">
+        <h2 class="font-signUp">Address</h2>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-column">
+        <div class="form-group">
+          <label for="countryInput" class="font-login">Country</label>
+          <input
+            type="text"
+            formControlName="country"
+            class="form-control"
+            id="countryInput"
+            aria-describedby="countryHelp"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-column">
+        <div class="form-group">
+          <label for="cityInput" class="font-login">City</label>
+          <input
+            type="text"
+            formControlName="city"
+            class="form-control"
+            id="cityInput"
+            aria-describedby="cityHelp"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-column">
+        <div class="form-group">
+          <label for="streetInput" class="font-login">Street</label>
+          <input
+            type="text"
+            formControlName="street"
+            class="form-control"
+            id="streetInput"
+            aria-describedby="streetHelp"
+          />
+        </div>
+      </div>
+      <div class="form-column">
+        <div class="form-group">
+          <label for="doorNumberInput" class="font-login">Door Number</label>
+          <input
+            type="text"
+            formControlName="doorNumber"
+            class="form-control"
+            id="doorNumberInput"
+            aria-describedby="doorNumberHelp"
+          />
+        </div>
+      </div>
+      <div class="form-column">
+        <div class="form-group">
+          <label for="postalCodeInput" class="font-login">Postal Code</label>
+          <input
+            type="text"
+            formControlName="postalCode"
+            class="form-control"
+            id="postalCodeInput"
+            aria-describedby="postalCodeHelp"
+          />
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="form-row">
+      <div class="form-column">
+        <h2 class="font-signUp">Role</h2>
+      </div>
+    </div>
+    <div *ngIf="isAdmin()" class="form-row">
+      <div class="form-column">
+        <div class="form-group">
+          <select formControlName="userRole">
+            <option
+              value="0"
+              [selected]="UserRoleToFrontMap(user?.userRole!) == 0"
+            >
+              Administrator
+            </option>
+            <option
+              value="1"
+              [selected]="UserRoleToFrontMap(user?.userRole!) == 1"
+            >
+              Client
+            </option>
+            <option
+              value="2"
+              [selected]="UserRoleToFrontMap(user?.userRole!) == 2"
+            >
+              Both
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!isAdmin()">
+      <ul>
+        <li *ngFor="let role of user?.userRole">
+          {{ getRoleString(role) }}
+        </li>
+      </ul>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-edit" (click)="EditUser()">Modify User</button>
+  <button
+    type="button"
+    class="btn btn-outline-dark"
+    (click)="activeModal.close('Close click')"
+  >
+    Cancel
+  </button>
+</div>

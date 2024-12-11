@@ -1,0 +1,51 @@
+<app-exception-handler></app-exception-handler>
+<div class="d-flex flex-row-reverse">
+  <button type="button" class="btn btn-edit" (click)="OpenModal()">
+    Add Product
+  </button>
+</div>
+<div class="table2">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Category</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let product of productService.productList$ | async; index as i"
+      >
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price | currency }}</td>
+        <td>{{ product.stock }}</td>
+        <td>{{ product.brand }}</td>
+        <td>{{ product.category }}</td>
+        <td>
+          <div class="btn-group" role="group" aria-label="btn grup">
+            <button
+              type="button"
+              class="btn btn-edit"
+              (click)="EditProduct(product.id)"
+            >
+              Edit
+            </button>
+            <button
+              type="button"
+              class="btn btn btn-danger"
+              (click)="RemoveProduct(product.id)"
+            >
+              X
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
